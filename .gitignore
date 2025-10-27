@@ -1,0 +1,70 @@
+# Ignore all .vscode directories
+.vscode/
+
+# Ignore all .idea directories (PyCharm)
+.idea/
+
+# Ignore all project-specific files created by PyCharm
+*.iml
+workspace.xml
+tasks.xml
+usage.statistics.xml
+dictionaries
+shelf/
+
+# Ignore all Python-related files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyp
+
+# Ignore all bytecode files
+*.class
+
+# Ignore all backup files
+*~
+
+# Ignore all object files
+*.o
+
+# Ignore all Ada Library Information files
+*.ali
+
+# Ignore all log files
+*.log
+
+# Ignore all PDFs
+*.pdf
+
+# Ignore all temporary files
+*.tmp
+*.swp
+*.swo
+
+# Ignore all compiled Java files
+*.jar
+*.war
+*.ear
+
+# Ignore all compiled Python files
+*.pyc
+
+# Ignore environment directories
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Ignore all Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore coverage reports
+coverage/
+*.cover
+.hypothesis/
+
+# Ignore all build directories
+build/
+dist/
