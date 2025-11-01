@@ -49,7 +49,7 @@ def main():
     start_time = time.time()
     
 
-    rf_classifier = RandomForestClassifier(n_estimators=100, random_state=42, n_jobs=-1, oob_score=True)
+    rf_classifier = RandomForestClassifier(n_estimators=150, random_state=42, n_jobs=-1, oob_score=True)
     
     rf_classifier.fit(X_train, y_train)
     
