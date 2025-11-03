@@ -68,3 +68,4 @@ coverage/
 # Ignore all build directories
 build/
 dist/
+runs/

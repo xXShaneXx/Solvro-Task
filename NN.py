@@ -1,6 +1,8 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
+from torchvision import datasets, transforms
+from torch.utils.tensorboard import SummaryWriter
 from preprocessing import create_dataloaders
 import time
 import os
@@ -101,13 +103,19 @@ def main():
     optimizer = optim.Adam(model.parameters(), lr=LEARNING_RATE)
 
     best_val_acc = 0.0
-    
+    writer = SummaryWriter()
+
     print("\n--- Rozpoczęcie treningu (Sieć Neuronowa) ---")
     for epoch in range(NUM_EPOCHS):
         start_time = time.time()
 
         train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
         val_loss, val_acc = evaluate(model, val_loader, criterion, device)
+
+        writer.add_scalar("LossNN/val", val_loss, epoch)
+        writer.add_scalar("LossNN/train", train_loss, epoch)
+        writer.add_scalar("AccuracyNN/train", train_acc, epoch)
+        writer.add_scalar("AccuracyNN/val", val_acc, epoch)
 
         end_time = time.time()
         epoch_duration = end_time - start_time
@@ -123,6 +131,7 @@ def main():
             print(f"Zapisano nowy najlepszy model z dokładnością: {best_val_acc:.4f}")
 
     print("\n--- Zakończono trening ---")
+    writer.flush()
 
     print("\n--- Testowanie najlepszego modelu na zbiorze testowym ---")
     model.load_state_dict(torch.load(MODEL_SAVE_PATH))

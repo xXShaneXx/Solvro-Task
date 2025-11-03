@@ -5,6 +5,7 @@ from preprocessing import create_dataloaders
 import time
 import os
 from sklearn.metrics import classification_report, confusion_matrix
+from torch.utils.tensorboard import SummaryWriter
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
@@ -120,7 +121,8 @@ def main():
     optimizer = optim.Adam(model.parameters(), lr=LEARNING_RATE)
 
     best_val_acc = 0.0
-    
+    writer = SummaryWriter()
+
     print("\n--- Rozpoczęcie treningu ---")
     for epoch in range(NUM_EPOCHS):
         start_time = time.time()
@@ -130,6 +132,11 @@ def main():
 
         end_time = time.time()
         epoch_duration = end_time - start_time
+
+        writer.add_scalar("LossCNN/val", val_loss, epoch)
+        writer.add_scalar("LossCNN/train", train_loss, epoch)
+        writer.add_scalar("AccuracyCNN/train", train_acc, epoch)
+        writer.add_scalar("AccuracyCNN/val", val_acc, epoch)
 
         print(f"Epoka {epoch+1}/{NUM_EPOCHS} | "
               f"Train Loss: {train_loss:.4f}, Train Acc: {train_acc:.4f} | "
@@ -142,6 +149,7 @@ def main():
             print(f"Zapisano nowy najlepszy model z dokładnością: {best_val_acc:.4f}")
 
     print("\n--- Zakończono trening ---")
+    writer.flush()
 
     print("\n--- Testowanie najlepszego modelu na zbiorze testowym ---")
     model.load_state_dict(torch.load(MODEL_SAVE_PATH))
