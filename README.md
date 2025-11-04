@@ -74,7 +74,7 @@ Wszystkie skrypty należy uruchamiać z głównego folderu repozytorium.
     ```
 
 2.  **Trening modeli:**
-    - **CNN (zalecany, najlepsze wyniki):**
+    - **CNN:**
       ```bash
       python CNN.py
       ```
@@ -82,7 +82,7 @@ Wszystkie skrypty należy uruchamiać z głównego folderu repozytorium.
       ```bash
       python NN.py
       ```
-    - **Las losowy (Random Forest):**
+    - **Random Forest:**
       ```bash
       python Random_Forest.py
       ```
