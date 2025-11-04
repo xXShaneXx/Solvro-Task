@@ -13,6 +13,8 @@ Repozytorium zawiera implementację i porównanie trzech różnych modeli do kla
 - `datasetStatistic.py`: Skrypt do analizy i wizualizacji statystyk zbioru danych.
 - `visualize_transforms.py`: Skrypt do wizualizacji transformacji na obrazach.
 - `requirements.txt`: Lista zależności Pythona.
+- `best_model.pth`: Zapisane wagi przykładowego modelu CNN.
+- `best_nn_model.pth`: Zapisane wagi przykładowego modelu NN.
 
 ## 1. Wymagania Wstępne
 

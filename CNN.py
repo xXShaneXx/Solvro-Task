@@ -106,7 +106,7 @@ def main():
     DATASET_ROOT = './Data'
     BATCH_SIZE = 35
     LEARNING_RATE = 0.001
-    NUM_EPOCHS = 35
+    NUM_EPOCHS = 45
     MODEL_SAVE_PATH = './best_model.pth'
 
     train_loader, val_loader, test_loader, class_names = create_dataloaders(DATASET_ROOT, batch_size=BATCH_SIZE)
